@@ -9,15 +9,16 @@
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "posttest": "make readme",
     "prepublish": "npm test",
-    "build": "npm test && node build",
+    "build": "npm test && node build/build.js",
     "tag": "git tag v`node -p 'require(\"./package\").version'`"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/demsking/vue-json-schema.git"
+    "url": "git+https://github.com/ctot-nondef/vuetify-json-schema.git"
   },
   "keywords": [
     "vue",
+    "vuetify",
     "form",
     "json",
     "schema"
@@ -60,8 +61,8 @@
     "collectCoverageFrom": [
       "**/*.{js,vue}",
       "!.eslintrc.js",
-      "!build.js",
-      "!webpack.config.js",
+      "!build/build.js",
+      "!build/webpack.config.js",
       "!dist/**",
       "!coverage/**",
       "!**/node_modules/**"
