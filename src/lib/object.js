@@ -1,3 +1,4 @@
+/* eslint no-prototype-builtins: "allow" */
 export function equals(o1, o2) {
   const keys1 = Object.keys(o1);
 

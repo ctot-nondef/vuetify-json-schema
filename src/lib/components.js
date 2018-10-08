@@ -24,7 +24,7 @@ const tags = {
     { component: 'arraybutton', option: { type: 'button', label: 'Add' } },
   ],
 };
- 
+
 export const option = { native: true };
 export const components = {};
 
@@ -74,7 +74,11 @@ export function renderFieldset(createElement, { props, slots }) {
     const legendOptions = elementOptions(vm, legend);
 
     children.unshift(
-      createElement(legend.component, legendOptions, props.field.description),
+      createElement(
+        legend.component,
+        legendOptions,
+        props.field.description,
+      ),
     );
   }
 
