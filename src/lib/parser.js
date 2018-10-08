@@ -2,7 +2,7 @@
 
 const ARRAY_KEYWORDS = ['anyOf', 'oneOf', 'enum'];
 
-export function setCommonFields (schema, field) {
+export function setCommonFields(schema, field) {
   field.attrs.value = field.attrs.hasOwnProperty('value')
     ? field.attrs.value
     : schema.default || '';
