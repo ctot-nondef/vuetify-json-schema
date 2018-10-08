@@ -1,89 +1,99 @@
-import { components, elementOptions, inputName } from '../lib/components'
-import FormSchemaInputDescription from './FormSchemaInputDescription'
-import FormSchemaInputArrayElement from './FormSchemaInputArrayElement'
+import { components, elementOptions, inputName } from '../lib/components';
+import FormSchemaInputDescription from './FormSchemaInputDescription';
+import FormSchemaInputArrayElement from './FormSchemaInputArrayElement';
+
+/* eslint object-curly-newline: ["never"] */
 
 export default {
   functional: true,
-  render (createElement, context) {
-    const { description, field, element, input } = context.props
-    const children = context.slots().default || []
+  render(createElement, context) {
+    const { description, field, element, input } = context.props;
+    const children = context.slots().default || [];
 
     const descriptionElement = createElement(FormSchemaInputDescription, {
       props: {
-        text: description || field.description
-      }
-    })
+        text: description || field.description,
+      },
+    });
 
     if (field.isArrayField) {
-      const vm = context.props.vm
+      const { vm } = context.props;
 
       if (field.attrs.type === 'checkbox') {
         if (element.render) {
-          return element.render(createElement, context)
+          return element.render(createElement, context);
         }
 
-        const ref = input.ref
+        const { ref } = input;
 
         return [
           createElement(FormSchemaInputArrayElement, {
             props: {
-              vm, ref, field, input, element
-            }
+              vm, ref, field, input, element,
+            },
           }, children),
-          descriptionElement
-        ]
+          descriptionElement,
+        ];
       }
-
+      /* eslint prefer-spread: "off" */
       const nodes = Array.apply(null, Array(field.itemsNum)).map((v, i) => {
-        const ref = inputName(field, i)
+        const ref = inputName(field, i);
 
-        return createElement(FormSchemaInputArrayElement, {
-          props: {
-            vm, ref, field, input, element
-          }
-        }, children)
-      })
+        return createElement(
+          FormSchemaInputArrayElement,
+          { props: { vm, ref, field, input, element } },
+          children,
+        );
+      });
 
-      const labelOptions = elementOptions(vm, components.label, {}, field)
-      const button = components.arraybutton
+      const labelOptions = elementOptions(vm, components.label, {}, field);
+      const button = components.arraybutton;
       const buttonOptions = {
         ...elementOptions(vm, button, {
-          disabled: field.maxItems <= field.itemsNum
+          disabled: field.maxItems <= field.itemsNum,
         }, field),
         on: {
           click: () => {
             if (field.itemsNum < field.maxItems) {
-              field.itemsNum++
-              vm.$forceUpdate()
+              field.itemsNum++;
+              vm.$forceUpdate();
             }
-          }
-        }
-      }
-      const label = button.option.label || button.defaultOption.label
+          },
+        },
+      };
+      const label = button.option.label || button.defaultOption.label;
       const buttonElement = createElement(
-        button.component, buttonOptions, label)
+        button.component,
+        buttonOptions,
+        label,
+      );
 
-      nodes.push(createElement(
-        components.label.component, labelOptions, [buttonElement]))
+      nodes.push(
+        createElement(
+          components.label.component,
+          labelOptions,
+          [buttonElement],
+        ),
+      );
 
       if (element.render) {
         return element.render(createElement, {
-          ...context, slots: () => ({ default: nodes })
-        }, nodes)
+          ...context, slots: () => ({ default: nodes }),
+        }, nodes);
       }
 
-      nodes.push(descriptionElement)
+      nodes.push(descriptionElement);
 
-      return nodes
+      return nodes;
     }
 
     if (element.render) {
-      return element.render(createElement, context)
+      return element.render(createElement, context);
     }
 
     return [
       createElement(element.component, input, children),
-      descriptionElement
-    ]
-  }
-}
+      descriptionElement,
+    ];
+  },
+};
