@@ -10,6 +10,7 @@ function resolve (dir) {
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
+    main: './src/main.js',
     ['vuetify-json-schema']: './src/components/FormSchema.js'
   },
   output: {
