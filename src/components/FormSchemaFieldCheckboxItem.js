@@ -1,15 +1,14 @@
-import { components, input as getInput } from '../lib/components'
-import FormSchemaInput from './FormSchemaInput'
-import FormSchemaWrappingInput from './FormSchemaWrappingInput'
+import { components, input as getInput } from '../lib/components';
+import FormSchemaInput from './FormSchemaInput';
+import FormSchemaWrappingInput from './FormSchemaWrappingInput';
 
 export default {
   functional: true,
-  render (createElement, context) {
-    const { vm, item, ref, field, inputWrappingClass } = context.props
-
-    const attrs = field.attrs
-    const element = components[attrs.type]
-    const description = item.description
+  render(createElement, context) {
+    const { vm, item, ref, field, inputWrappingClass } = context.props;
+    const { attrs } = field;
+    const element = components[attrs.type];
+    const { description } = item;
     const input = getInput({
       ref,
       vm,
@@ -23,21 +22,20 @@ export default {
             ? vm.data[attrs.name] instanceof Array
               ? vm.data[attrs.name].includes(item.value)
               : item.value === vm.data[attrs.name]
-            : context.props.checked
-        }
-      }
-    })
+            : context.props.checked,
+        },
+      },
+    });
 
-    return createElement(FormSchemaWrappingInput, {
-      props: {
-        vm, field, inputWrappingClass
-      }
-    }, [
-      createElement(FormSchemaInput, {
-        props: {
-          vm, field, input, element, description
-        }
-      })
-    ])
-  }
-}
+    return createElement(
+      FormSchemaWrappingInput,
+      { props: { vm, field, inputWrappingClass } },
+      [
+        createElement(
+          FormSchemaInput,
+          { props: { vm, field, input, element, description } },
+        ),
+      ],
+    );
+  },
+};

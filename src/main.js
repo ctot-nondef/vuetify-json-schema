@@ -3,7 +3,7 @@ import App from './app';
 
 Vue.config.productionTip = false;
 
-Vue.use(SvgIcon, {
+Vue.use({
   tagName: 'svgicon',
 });
 

@@ -38,7 +38,20 @@ module.exports = {
         'acc', // for reduce accumulators
         'e' // for e.returnvalue
       ]
-    }],    
+    }],
+    'no-plusplus': ["error", { "allowForLoopAfterthoughts": true }],
+    'object-curly-newline': ["off"],
+    "no-shadow": ["error", { "builtinGlobals": false, "hoist": "never", "allow": [] }],
+    "no-param-reassign": ["error", { "props": false }],
+    "no-prototype-builtins": "off",
+    "no-restricted-syntax": "off",
+    "default-case": "off",
+    "guard-for-in": "off",
+    "no-shadow": "off",
+    "no-nested-ternary": "off",
+    "no-case-declarations":"off",
+    "no-confusing-arrow":"off",
+    "import/prefer-default-export":"off",
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await

@@ -4,10 +4,7 @@ import FormSchemaWrappingInput from './FormSchemaWrappingInput';
 import FormSchemaFieldCheckboxItem from './FormSchemaFieldCheckboxItem';
 import FormSchemaFieldSelectOption from './FormSchemaFieldSelectOption';
 
-/* eslint no-prototype-builtins: "allow" */
-
 const FormSchemaField = {
-  /*eslint object-curly-newline: ["never"]*/
   functional: true,
   render(createElement, context) {
     const { vm } = context.props;

@@ -6,7 +6,7 @@ import FormSchemaButtons from './FormSchemaButtons';
 
 /* eslint no-underscore-dangle: ["error", { "allow": ["__form"] }] */
 
-const fieldTypesAsNotArray = ['radio', 'checkbox', 'textarea', 'select', ];
+const fieldTypesAsNotArray = ['radio', 'checkbox', 'textarea', 'select'];
 
 init();
 

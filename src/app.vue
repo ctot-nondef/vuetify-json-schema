@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import FormSchema from './components/FormSchema';
+import formschema from './components/FormSchema';
 
 export default {
   name: 'App',
   components: {
-    FormSchema,
+    formschema,
   },
 };
 </script>

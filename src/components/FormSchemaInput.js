@@ -2,8 +2,6 @@ import { components, elementOptions, inputName } from '../lib/components';
 import FormSchemaInputDescription from './FormSchemaInputDescription';
 import FormSchemaInputArrayElement from './FormSchemaInputArrayElement';
 
-/* eslint object-curly-newline: ["never"] */
-
 export default {
   functional: true,
   render(createElement, context) {
@@ -55,7 +53,7 @@ export default {
         on: {
           click: () => {
             if (field.itemsNum < field.maxItems) {
-              field.itemsNum++;
+              field.itemsNum += 1;
               vm.$forceUpdate();
             }
           },
