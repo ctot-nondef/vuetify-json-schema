@@ -52,6 +52,7 @@ module.exports = {
     "no-case-declarations":"off",
     "no-confusing-arrow":"off",
     "import/prefer-default-export":"off",
+    "import/no-named-as-default-member":"off",
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await

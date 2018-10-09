@@ -8,6 +8,10 @@
 import formschema from './components/FormSchema';
 import actor from './actor.json';
 
+formschema.setComponent('text', 'v-text-field', ({ field }) => ({
+  prop: field.name,
+}));
+
 export default {
   name: 'App',
   data() {
@@ -17,6 +21,9 @@ export default {
   },
   components: {
     formschema,
+  },
+  created() {
+
   },
 };
 </script>
