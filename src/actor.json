@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "_labels": {
+      "type": "array",
+      "items": {
+        "title": "itemOf__labels",
+        "type": "object",
+        "properties": {
+          "_id": {},
+          "kind": {
+            "type": "string",
+            "enum": ["firstName", "lastName", "prefixToName", "title", "acronym"]
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "instanceOf": {
+      "type": "string",
+      "x-ref": "descriptor",
+      "description": "Refers to descriptor",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "identifier": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "(?:)"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "title": "itemOf_relations",
+        "type": "object",
+        "properties": {
+          "_id": {},
+          "target": {
+            "type": "string",
+            "x-ref": "actor",
+            "description": "Refers to actor",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["hasParent", "partOf", "sameAs", "hasSibling"]
+          },
+          "annotation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "beginOfExistence": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endOfExistence": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "_authorityRecs": {
+      "type": "array",
+      "items": {
+        "title": "itemOf__authorityRecs",
+        "type": "object",
+        "properties": {
+          "_id": {},
+          "record": {
+            "type": "string",
+            "x-ref": "authrec",
+            "description": "Refers to authrec",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "link": {
+            "type": "string",
+            "pattern": "(?:)"
+          }
+        }
+      }
+    },
+    "_history": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-ref": "_history",
+        "description": "Refers to _history",
+        "pattern": "^[0-9a-fA-F]{24}$"
+      }
+    },
+    "_id": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "__v": {
+      "type": "number"
+    }
+  },
+  "required": ["name"]
+}

@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <formschema />
+    <formschema :schema="schema"/>
   </div>
 </template>
 
 <script>
 import formschema from './components/FormSchema';
+import actor from './actor.json';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      schema: actor,
+    };
+  },
   components: {
     formschema,
   },
