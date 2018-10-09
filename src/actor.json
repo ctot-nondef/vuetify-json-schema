@@ -2,7 +2,14 @@
   "type": "object",
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 80,
+      "title": "Full Name",
+      "attrs": {
+        "placeholder": "Your Full Name",
+        "title": "Please enter your full name"
+      }
     },
     "_labels": {
       "type": "array",

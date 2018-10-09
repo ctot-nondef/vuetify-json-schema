@@ -9,7 +9,7 @@ import formschema from './components/FormSchema';
 import actor from './actor.json';
 
 formschema.setComponent('text', 'v-text-field', ({ field }) => ({
-  prop: field.name,
+  label: field.name,
 }));
 
 export default {
