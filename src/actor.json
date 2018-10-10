@@ -5,10 +5,9 @@
       "type": "string",
       "minLength": 8,
       "maxLength": 80,
-      "title": "Full Name",
       "attrs": {
-        "placeholder": "Your Full Name",
-        "title": "Please enter your full name"
+        "label": "Full Name",
+        "placeholder": "Please enter your full name"
       }
     },
     "_labels": {
@@ -29,7 +28,8 @@
       }
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "title": "Description"
     },
     "instanceOf": {
       "type": "string",
