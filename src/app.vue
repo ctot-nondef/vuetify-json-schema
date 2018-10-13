@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <formschema :schema="schema"/>
+    <v-app>
+      <formschema :schema="schema"/>
+      <v-text-field
+        name="name"
+        label="testfield"        
+      ></v-text-field>
+    </v-app>
   </div>
 </template>
 
@@ -9,27 +15,22 @@ import formschema from './components/FormSchema';
 import actor from './actor.json';
 
 
-formschema.setComponent('form', 'v-form', ({ vm }) => {
-  const model = vm.data;
-  const rules = {};
-
-  // vm is the FormSchema VM
-  console.log('vm', vm);
-  vm.fields.forEach((field) => {
-    console.log(field);
-    const type = field.schemaType === 'array' && field.type === 'radio'
-      ? 'string'
-      : field.schemaType;
-    const { required } = field;
-    const message = field.title;
-    const trigger = ['radio', 'checkbox', 'select'].includes(field.type)
-      ? 'change' : 'blur';
-
-    // http://element.eleme.io/#/en-US/component/form#validation
-    rules[field.name] = { type, required, message, trigger };
-  });
-  console.log(rules, model);
-});
+// formschema.setComponent('form', 'v-form', ({ vm }) => {
+//   const model = vm.data;
+//   const rules = {};
+//   vm is the FormSchema VM
+//   console.log('vm', vm);
+//   vm.fields.forEach((field) => {
+//     const { required } = field;
+//     const message = field.title;
+//     const trigger = ['radio', 'checkbox', 'select'].includes(field.type)
+//       ? 'change' : 'blur';
+//
+//     // http://element.eleme.io/#/en-US/component/form#validation
+//     rules[field.name] = { type, required, message, trigger };
+//   });
+//   console.log(rules, model);
+// });
 
 
 formschema.setComponent('text', 'v-text-field', ({ field }) => ({
